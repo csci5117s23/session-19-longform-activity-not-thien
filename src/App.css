@@ -1,38 +1,60 @@
-.App {
-  margin:10%;
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: grey;
+    padding: 0 1.5rem;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+    text-align: center;
+    height: 5.5rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@media (max-width: 670px) {
+    .header {
+        height: 10rem;
+    }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.header .logo {
+    height: 4rem;
+    width: 12rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+    margin: 1rem 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.card-grid {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+    display: grid;
+    grid-area: 1 1 2 2; /* supposed to be a solution for dynamic height, dunno at this time */
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+    text-align: center;
+    border-radius: .25rem;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+    background-color: gold;
+    height: 150px; /* STATIC */
+    cursor: pointer;
+    transform: translateY(var(--translate-y, 0)); /* for hover emphasis */
+    transition: transform 150ms; /* Only apply transition for hover */
+}
+
+.card:hover {
+    --translate-y: -2px; /* for the hover emphasis */
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+}
+
+.card.flipped {
+    background-color: maroon;
+    color: white;
 }
